@@ -5,7 +5,6 @@ import { CityTempInfo } from "./CityTempInfo";
 
 export const SearchBar = () => {
   //weather api key
-  //const KEY = "b4d9008cc01ec4d6c42f35f355c1e07d";
   KEY = config.key;
   const [location, setLocation] = useState("");
   const [weather, setWeather] = useState({});
