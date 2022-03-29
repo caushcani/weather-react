@@ -2,10 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { CityTempInfo } from "./CityTempInfo";
+import config from '../config';
 
 export const SearchBar = () => {
   //weather api key
-  KEY = config.key;
+  const KEY = config.key;
   const [location, setLocation] = useState("");
   const [weather, setWeather] = useState({});
 
@@ -30,17 +31,20 @@ export const SearchBar = () => {
     e.preventDefault();
     console.log("Location is : " + location);
     console.log(weather);
+    console.log("Country:" + weather.sys.country)
   };
 
-  const showCity = location === "" ? "" : <CityTempInfo city={location}  />;
+  //if weather is not empty, then render CityTempInfo which contains more information about weather
+  const showMoreInfo = Object.keys(weather).length === 0 ? "" : <CityTempInfo weather={weather}  />;
+
   return (
     <div>
       <form onSubmit={(e) => handleSubmit(e)}>
         <label>Enter location</label>
-        <input type="text" value={location} onChange={(e) => handleChange(e)} />
-        <input type="submit" value="Show temperature" />
+        <input type="text"placeholder="Type city here..." value={location} onChange={(e) => handleChange(e)} />
+        {/*<button type="submit" value="Show temperature" className="btn">Submit</button>*/}
       </form>
-      <h1>{showCity}</h1>
+      {showMoreInfo}
     </div>
   );
 };

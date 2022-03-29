@@ -1,13 +1,74 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+input{
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  resize: none;
+  overflow-y: hidden;
+  border: 0;
+  outline: 0;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.btn{
+  width: 80px;
+  height: 30px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Red Rose', cursive;
+    background-color: #F5F5F5;
+}
+
+.card{
+    width: 350px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.card img{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.card .details{
+    margin: 10px;
+}
+
+.card .details h2{
+    font-weight: 600;
+}
+
+.card .details p{
+    text-transform: uppercase;
+    font-weight: 300;
 }
