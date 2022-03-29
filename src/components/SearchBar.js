@@ -10,16 +10,16 @@ export const SearchBar = () => {
   const [location, setLocation] = useState("");
   const [weather, setWeather] = useState({});
 
-  useEffect(() => {
-    //get temperature handler
-    if (location != "") {
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${KEY}`)
-        .then((res) => {
-          const data = res.data;
-          setWeather(data);
-        });
-    }
-  }, [location]);
+  // useEffect(() => {
+  //   //get temperature handler
+  //   if (location != "") {
+  //     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${KEY}`)
+  //       .then((res) => {
+  //         const data = res.data;
+  //         setWeather(data);
+  //       });
+  //   }
+  // }, [location]);
 
   //handle change of input value
   const handleChange = (e) => {
@@ -30,8 +30,18 @@ export const SearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Location is : " + location);
+    if (location != "") {
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${KEY}`
+        )
+        .then((res) => {
+          const data = res.data;
+          setWeather(data);
+        });
+    }
+    setLocation("");
     console.log(weather);
-    console.log("Country:" + weather.sys.country)
   };
 
   //if weather is not empty, then render CityTempInfo which contains more information about weather
